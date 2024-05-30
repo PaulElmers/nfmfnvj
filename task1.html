@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тварина, що слідує за курсором</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+        .animal {
+            position: absolute;
+            width: 150px;
+            height: auto;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://img.freepik.com/free-photo/close-up-on-kitten-surrounded-by-flowers_23-2150782329.jpg" alt="Котик" class="animal" id="animal">
+
+    <script>
+        document.addEventListener('mousemove', (event) => {
+            const animal = document.getElementById('animal');
+            const animalWidth = animal.offsetWidth;
+            const animalHeight = animal.offsetHeight;
+            const pageWidth = window.innerWidth;
+            const pageHeight = window.innerHeight;
+
+            let x = event.clientX - animalWidth / 2;
+            let y = event.clientY - animalHeight / 2;
+
+            if (x < 0) x = 0;
+            if (y < 0) y = 0;
+            if (x + animalWidth > pageWidth) x = pageWidth - animalWidth;
+            if (y + animalHeight > pageHeight) y = pageHeight - animalHeight;
+
+            animal.style.left = x + 'px';
+            animal.style.top = y + 'px';
+        });
+    </script>
+</body>
+</html>

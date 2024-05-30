@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список фруктів</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            padding: 20px;
+        }
+        .fruit-list {
+            list-style: none;
+            padding: 0;
+        }
+        .fruit-list li {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            transition: box-shadow 0.3s;
+        }
+        .fruit-list .red {
+            background-color: #ffcccc;
+        }
+        .fruit-list .green {
+            background-color: #ccffcc;
+        }
+        .fruit-list .orange {
+            background-color: #ffebcc;
+        }
+        .fruit-list .yellow {
+            background-color: #ffffcc;
+        }
+        .color-btn {
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .color-btn.red {
+            background-color: red;
+            color: white;
+        }
+        .color-btn.green {
+            background-color: green;
+            color: white;
+        }
+        .color-btn.orange {
+            background-color: orange;
+            color: white;
+        }
+        .color-btn.yellow {
+            background-color: yellow;
+            color: black;
+        }
+        .fruit-list .highlight {
+            box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+<h1>Список фруктів</h1>
+
+<div>
+    <button class="color-btn red" onclick="highlightFruits('red')">Червоні</button>
+    <button class="color-btn green" onclick="highlightFruits('green')">Зелені</button>
+    <button class="color-btn orange" onclick="highlightFruits('orange')">Оранжеві</button>
+    <button class="color-btn yellow" onclick="highlightFruits('yellow')">Жовті</button>
+</div>
+
+<ul class="fruit-list">
+    <li class="red">Яблуко</li>
+    <li class="green">Ківі</li>
+    <li class="orange">Апельсин</li>
+    <li class="yellow">Банан</li>
+    <li class="red">Полуниця</li>
+    <li class="green">Лайм</li>
+    <li class="orange">Мандарин</li>
+    <li class="yellow">Ананас</li>
+</ul>
+
+<script>
+    function highlightFruits(color) {
+        const fruits = document.querySelectorAll('.fruit-list li');
+        fruits.forEach(fruit => {
+            fruit.classList.remove('highlight');
+        });r
+        const coloredFruits = document.querySelectorAll(`.fruit-list .${color}`);
+        coloredFruits.forEach(fruit => {
+            fruit.classList.add('highlight');
+        });
+    }
+</script>
+
+</body>
+</html>

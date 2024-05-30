@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Rating</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .star-rating {
+            display: flex;
+            flex-direction: row;
+            font-size: 50px;
+            margin-top: 20px;
+        }
+        .star {
+            cursor: pointer;
+            color: black;
+            transition: color 0.3s;
+        }
+        .star:hover,
+        .star:hover ~ .star {
+            color: orange;
+        }
+        img {
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<img src="https://preview.redd.it/is-jotaro-vs-dio-really-good-v0-ey2te0jk3u3b1.jpg?width=640&crop=smart&auto=webp&s=f59b14800370921098adad6047e5f1c5cc219fe9" alt="Jotaro vs Dio">
+
+<div class="star-rating">
+    <span class="star" data-value="1">&#9733;</span>
+    <span class="star" data-value="2">&#9733;</span>
+    <span class="star" data-value="3">&#9733;</span>
+    <span class="star" data-value="4">&#9733;</span>
+    <span class="star" data-value="5">&#9733;</span>
+</div>
+
+<script>
+    const stars = document.querySelectorAll('.star');
+    stars.forEach(star => {
+        star.addEventListener('click', () => {
+            const rating = star.getAttribute('data-value');
+            highlightStars(rating);
+        });
+    });
+
+    function highlightStars(rating) {
+        stars.forEach(star => {
+            if (star.getAttribute('data-value') <= rating) {
+                star.style.color = 'orange';
+            } else {
+                star.style.color = 'black';
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

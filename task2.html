@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бічне меню</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 25px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        .menu-btn {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+            background-color: #111;
+            padding: 10px;
+            border: none;
+            transition: 0.3s;
+        }
+        .menu-btn:hover {
+            background-color: #575757;
+        }
+        .content {
+            transition: margin-left 0.5s;
+            padding: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="sidebar" id="sidebar">
+    <a href="#">тут шось мало бути 1</a>
+    <a href="#">тут шось мало бути 2</a>
+    <a href="#">тут шось мало бути 3</a>
+</div>
+
+<button class="menu-btn" id="menuBtn">MENU</button>
+
+<div class="content" id="content">
+    <h2>Зміст сторінки</h2>
+    <p>Ю нов ху із душніла?</p>
+</div>
+
+<script>
+    document.getElementById("menuBtn").onclick = function() {
+        var sidebar = document.getElementById("sidebar");
+        var content = document.getElementById("content");
+
+        if (sidebar.style.width === "250px") {
+            sidebar.style.width = "0";
+            content.style.marginLeft = "0";
+        } else {
+            sidebar.style.width = "250px";
+            content.style.marginLeft = "250px";
+        }
+    };
+</script>
+
+</body>
+</html>
